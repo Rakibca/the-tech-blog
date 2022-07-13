@@ -8,10 +8,9 @@ const withAuth = require('../utils/auth');
 const sequelize = require('../config/connection');
 
 
-router.get('/', async (req, res) => {
-  //console.log(req.session);
+// dashboard displaying blogs created by logged in users
+router.get('/', withAuth, async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
     const blogData = await Blog.findAll({
       attributes: [
         'id',
@@ -38,18 +37,19 @@ router.get('/', async (req, res) => {
       plain: true
     }));
     // Pass serialized data and session flag into template
-    res.render('home', {
+    res.render('dashboard', {
       blogs,
-      loggedIn: req.session.loggedIn
+      loggedIn: true
     });
+
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 
-//rendering one blog to the single-post page
-router.get('/blog/:id', async (req, res) => {
+// rendering edit page
+router.get('/edit/:id', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findOne({
       where: {
@@ -74,21 +74,14 @@ router.get('/blog/:id', async (req, res) => {
           attributes: ['username']
         }
       ]
-    });
-    if (!blogData) {
-      res.status(404).json({
-        message: 'There is no blog with this id!'
-      });
-      return;
-    }
+    })
     // Serialize data so the template can read it
     const blogs = blogData.map(blog => blog.get({
       plain: true
     }));
-    // pass data to template
-    res.render('single-post', {
+    res.render('editBlogs', {
       blogs,
-      loggedIn: req.session.loggedIn
+      loggedIn: true
     });
   } catch (err) {
     res.status(500).json(err);
@@ -96,18 +89,9 @@ router.get('/blog/:id', async (req, res) => {
 });
 
 
-router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
-  res.render('login');
-});
-
-
-router.get('/signup', (req, res) => {
-  res.render('signup');
+// rendering newpost page
+router.get('/newblog', (req, res) => {
+  res.render('newBlogs');
 });
 
 
