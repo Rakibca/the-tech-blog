@@ -1,0 +1,8 @@
+<ol class="blog-list">
+  <!-- Loop over each object in the blogs array -->
+  {{#each blogs as |blog|}}
+    <ul>
+      {{> blog-info blog }}
+    </ul>
+  {{/each}}
+</ol>
