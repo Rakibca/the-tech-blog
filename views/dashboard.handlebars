@@ -1,27 +1,44 @@
-{{#if blogs.length}}
-  <section>
-    <h2>My Blogs</h2>
-    <ol>
-      {{#each blogs as |blog|}}
-        <ul>
-
-          <article class="blog">
-            <div class="title">
-              <a href="/blog/{{id}}">{{blog_title}}</a>
-            </div>
-
-            <div class="meta">
-              <strong>Written by {{user.username}} on {{format_date created_at}}</strong>
-            </div>
-          </article>
-
-          <a href="/dashboard/edit/{{blog.id}}" class="edit-link">Edit blog</a>
-        </ul>
-      {{/each}}
-    </ol>
-  </section>
-{{/if}}
-
-<div>
-  <button type="submit"><a href="/dashboard/newblog" class="create-btn">Create New Blog</a></button>
+<div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{name}}!</h2>
+  </div>
 </div>
+
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Create a New Blog Post:</h3>
+
+    <form class="form new-post-form">
+      <div class="form-group">
+        <label for="post-name">post name:</label>
+        <input class="form-input" type="text" id="post-name" name="post-name" />
+      </div>
+      <div class="form-group">
+        <label for="post-desc">description:</label>
+        <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </form>
+  </div>
+
+  {{#if posts.length}}
+  <div class="col-md-6 post-list">
+    <h3>Current Blog Posts:</h3>
+
+    {{#each posts as |post|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/post/{{post.id}}">{{post.name}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
+
+<script src="./js/dashboard.js"></script>

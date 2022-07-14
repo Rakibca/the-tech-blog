@@ -1,40 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Tech Blog</title>
-  <link rel="stylesheet" href="/stylesheets/jass.css">
-  <link rel="stylesheet" href="/stylesheets/style.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-  <div class="wrapper">
-    <header>
+  <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
       <h1>
-        <p class="blog-title">The Tech Blog</p>
+        <span role="img" aria-label="money">💸</span>
+        <a href="/">The Tech Blog</a>
       </h1>
       <nav>
-        {{#if loggedIn}}
-          <a href="/" class="homepage">Home</a>
-          <a href="/dashboard">Dashboard</a>
-          <button id="logout" class="btn-no-style">Logout</button>
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="/dashboard">Dashboard</a> |
+        <button class="no-button" id="logout">Logout</button>
         {{else}}
-          <a href="/" class="homepage">Home</a>
-          <a href="/login">Login</a>
+        <a href="/login">Login</a>
         {{/if}}
       </nav>
     </header>
-
-    <main>
+    <main class="container container-fluid mt-5">
+      <!-- Render the sub layout -->
       {{{ body }}}
     </main>
+    <footer>
+
+    </footer>
   </div>
 
-  {{#if loggedIn}}
-    <script src="/javascript/logout.js"></script>
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
   {{/if}}
 </body>
 
