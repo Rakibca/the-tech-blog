@@ -7,11 +7,16 @@ const newFormHandler = async (event) => {
   if (name && description) {
     const response = await fetch(`/api/posts`, {
       method: 'POST',
-      body: JSON.stringify({ name, description }),
+      body: JSON.stringify({
+        name,
+        description
+      }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
+
+    console.log(response);
 
     if (response.ok) {
       document.location.replace('/dashboard');
@@ -20,6 +25,7 @@ const newFormHandler = async (event) => {
     }
   }
 };
+
 
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
@@ -36,6 +42,7 @@ const delButtonHandler = async (event) => {
     }
   }
 };
+
 
 document
   .querySelector('.new-post-form')
