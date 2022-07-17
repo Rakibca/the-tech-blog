@@ -1,33 +1,39 @@
-<article>
-  <h2>
-    Edit this Post
-  </h2>
-  <form class="edit-post-form">
-    <div>
-      <input name="post-name" type="text" value="{{post.name}}" />
-    </div>
-    <div>
-      <textarea name="post-description">{{post.description}}</textarea>
-    </div>
-
-    <div>
-      Posted on {{format_date post.date_created}}
-    </div>
-    <button type="submit">Save post</button>
-  </form>
-</article>
-
-<!-- <form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
+<div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{post.user.name}}!</h2>
   </div>
+</div>
 
-  <div>
-    <button type="submit">add comment</button>
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h4>Edit This Blog:</h4>
+    <form class="form edit-post-form">
+      <div class="form-group">
+        <label for="post-name">Title:</label>
+        <input class="form-input" type="text" name="post-name" id="post-name" value="{{post.name}}" />
+      </div>
+      <div class="form-group">
+        <label for="post-desc">Description:</label>
+        <textarea class="form-input" name="post-desc" id="post-desc">{{post.description}}</textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">UPDATE</button>
+      </div>
+    </form>
+    <br>
+    <br>
+    <br>
+    <h4>Comment This Blog:</h4>
+    <form class="form comment-post-form">
+      <div class="form-group">
+        <textarea class="form-input" name="post-desc" id="post-desc">{{post.description}}</textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">UPDATE</button>
+      </div>
+    </form>
   </div>
-</form>
+</div>
 
-{{> comments post.comments}} -->
 
 <script src="/js/editpost.js"></script>
-<!-- <script src="/js/comment.js"></script> -->
