@@ -12,15 +12,17 @@
 <body>
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <span role="img" aria-label="money">💸</span>
+      <span role="img" aria-label="money">💸</span>
+      <h5>
         <a href="/">Home</a>
-      </h1>
+        <a href="/dashboard">Dashboard</a>
+      </h5>
       <nav>
-        <a href="/login">Login</a>
         {{#if logged_in}}
-          <a href="/dashboard">Dashboard</a>
           <button class="no-button" id="logout">Logout</button>
+        {{else}}
+          <a href="/login">Login</a>
+          <a href="/signup">Account</a>
         {{/if}}
       </nav>
     </header>
@@ -31,7 +33,6 @@
     </main>
   </div>
 
-  <!-- Render script for logged in users only -->
   {{#if logged_in}}
     <script src="/js/logout.js"></script>
   {{/if}}

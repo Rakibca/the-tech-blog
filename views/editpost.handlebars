@@ -1,0 +1,33 @@
+<article>
+  <h2>
+    Edit this Post
+  </h2>
+  <form class="edit-post-form">
+    <div>
+      <input name="post-name" type="text" value="{{post.name}}" />
+    </div>
+    <div>
+      <textarea name="post-description">{{post.description}}</textarea>
+    </div>
+
+    <div>
+      Posted on {{format_date post.date_created}}
+    </div>
+    <button type="submit">Save post</button>
+  </form>
+</article>
+
+<!-- <form class="comment-form">
+  <div>
+    <textarea name="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">add comment</button>
+  </div>
+</form>
+
+{{> comments post.comments}} -->
+
+<script src="/js/editpost.js"></script>
+<!-- <script src="/js/comment.js"></script> -->

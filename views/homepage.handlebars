@@ -7,7 +7,8 @@
       {{{get_emoji}}}
       <a href="/post/{{post.id}}">{{post.name}}</a>
     </h2>
-    <p>Created by {{post.user.name}} on {{format_date post.date_created}}</p>
+    <p>Posted by {{post.user.name}} on {{format_date post.date_created}}</p>
+    <button type="button" class="btn btn-secondary more-button"><a href="/post/{{post.id}}">Click to comment</a></button>
   </div>
   <div class="col-md-7">
     <p>
