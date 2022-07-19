@@ -1,5 +1,12 @@
-<!-- <div class="comment">
-    <p>{{description}}</p>
-    <p>By: {{user.name}}</p>
-    <p>Created: {{date_created}}</p>
-</div> -->
+<div class="comments">
+  {{#each this}}
+  <section class="comment">
+    <div class="meta">
+      <p>Commented by {{post.user.name}} on {{format_date post.date_created}}</p>
+    </div>
+    <div class="text">
+      {{comment.commentText}}
+    </div>
+  </section>
+  {{/each}}
+</div>

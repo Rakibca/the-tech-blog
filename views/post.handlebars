@@ -1,34 +1,22 @@
 <div class="text-center">
-  <h2>{{name}}</h2>
+  <h2>{{post.name}}</h2>
   <p>{{{get_emoji}}}</p>
-  <p>{{description}}</p>
-  <p>Posted by {{user.name}} on {{format_date date_created}}</p>
-  <button class="btn btn-primary">Comment</button>
+  <p>{{post.description}}</p>
+  <p>Posted by {{post.user.name}} on {{format_date post.date_created}}</p>
 </div>
 
-<!-- <input type="hidden" name="post-id" value="{{post.id}}" /> -->
-
-
-<!-- {{#each postData.comments}}
-{{>comments}}
-{{/each}} -->
-
-
-
-<!-- <div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Comments Section:</h3>
-
-    <form action="submit" class="form new-comment-form">
-      <div class="form-group">
-        <label for="comment-body">Comment: </label>
-        <textarea class="form-input" id="comment-body" name="comment-body"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </form>
-  </div>
-
-
-  <script src="/js/comment.js"></script> -->
+<input type="hidden" name="post-id" value="{{post.post_id}}" />
+{{#if logged_in}}
+  <form class="comment-post-form">
+    <div class="form-group">
+      <textarea class="form-input" name="comment-desc" id="comment-desc">{{comment.commentText}}</textarea>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">ADD COMMENT</button>
+    </div>
+  </form>
+{{/if}}
+{{> comments post.comments}}
+{{#if logged_in}}
+  <script src="/js/comment.js"></script>
+{{/if}}
