@@ -1,13 +1,12 @@
-<div class="comments">
-  {{#each this}}
-  <section class="comment">
-    <div class="meta">
-      <p>Commented by {{name}} on {{format_date post.date_created}}</p>
+{{#each this}}
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-text">{{commentText}}</h5>
+          <p class="card-title">Commented on {{commentDateFormat (dateNow) format='MMMM Do YYYY'}}</p>
+        </div>
+      </div>
     </div>
-    <div class="text">
-      {{commentText}}
-      <p></p>
-    </div>
-  </section>
-  {{/each}}
-</div>
+  </div>
+{{/each}}

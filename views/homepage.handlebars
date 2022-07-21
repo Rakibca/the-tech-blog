@@ -1,19 +1,16 @@
-<!-- Loop over each object in the posts array -->
 {{#each posts as |post| }}
-<div class="row mb-4 post">
-  <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/post/{{post.id}}">{{post.name}}</a>
-    </h2>
-    <p>Posted by {{post.user.name}} on {{format_date post.date_created}}</p>
-    <button type="button" class="btn btn-secondary more-button"><a href="/post/{{post.id}}">Click to comment</a></button>
+  <div class="row mb-4 post">
+    <div class="col-md-5">
+      <h2>
+        <a href="/post/{{post.id}}">{{post.name}}</a>
+      </h2>
+      <p>Posted by {{post.user.name}} on {{format_date post.date_created}}</p>
+      <button type="button" class="btn btn-primary"><a href="/post/{{post.id}}">COMMENT HERE</a></button>
+    </div>
+    <div class="col-md-7">
+      <p>
+        {{post.description}}
+      </p>
+    </div>
   </div>
-  <div class="col-md-7">
-    <p>
-      {{post.description}}
-    </p>
-  </div>
-</div>
 {{/each}}

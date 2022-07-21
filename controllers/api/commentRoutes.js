@@ -5,16 +5,6 @@ const {
 const withAuth = require('../../utils/auth');
 
 
-// router.get('/', (req, res) => {
-//   Comment.findAll()
-//     .then((commentData) => res.json(commentData))
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
-
-
 router.get('/', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.findAll({
@@ -46,8 +36,6 @@ router.post('/', withAuth, async (req, res) => {
       const newComment = await Comment.create({
         commentText: req.body.comment_body,
         post_id: req.body.post_id,
-        //...body,
-        //user_id: req.session.user_id,
       })
       res.status(200).json(newComment);
     } catch (err) {
