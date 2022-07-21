@@ -39,11 +39,12 @@ router.get('/', withAuth, async (req, res) => {
 router.post('/', withAuth, async (req, res) => {
   //const body = req.body;
   if (req.session) {
-    console.log('good1');
+    //console.log('good1');
+    console.log(req.body);
     try {
-      console.log('good2');
+      //console.log('good2');
       const newComment = await Comment.create({
-        commentText: req.body.commentText,
+        commentText: req.body.comment_body,
         post_id: req.body.post_id,
         //...body,
         //user_id: req.session.user_id,
