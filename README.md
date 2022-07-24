@@ -18,7 +18,7 @@
 💻
 
 Browse to this link to access the blog:
-`http://`
+`https://guarded-brushlands-26024.herokuapp.com/`
 
 ## License
 This project is licensed under MIT.
