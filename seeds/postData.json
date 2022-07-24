@@ -1,14 +1,18 @@
 [
   {
-    "name": "Music Near Me",
-    "description": "A mobile app that will send you notifications whenever a concert is playing in your area."
+    "name": "Amazon Is Turning Alexa Into A Fully Automated Virtual Assistant",
+    "description": "Alexa is gradually becoming a fully automated virtual assistant thanks to Amazon. The goal of Amazon’s several improvements to the Alexa user interface is to make the virtual assistant simpler to use."
   },
   {
-    "name": "The Ultimate Tech Quiz",
-    "description": "A web app that will give users 10 new technical questions each day and track their progress."
+    "name": "Apple Releases New Versions Of iOS, iPadOS, macOS And More",
+    "description": "A number of users have spotted the latest of Apple’s updates. This slate of updates is iOS 15.6, iPadOS 15.6, macOS 12.5, watchOS 8.7, and tvOS 15.6."
   },
   {
-    "name": "Roll Them Up",
-    "description": "A game for Windows where players move a ball through a series of increasingly challenging mazes."
+    "name": "Google Photos Gets New Feature That Access Screenshots Faster",
+    "description": "Google’s Photos app has received new updates that make locating screenshots directly within the app faster. With the new update, users will be able to access screenshots through a shortcut."
+  },
+  {
+    "name": "Microsoft Launches Viva Engage, A Facebook-Like App For The Workplace",
+    "description": "Microsoft will launch Viva Engage, a digital employee experience platform that leverages the power of Microsoft 365 to deliver personalised information, insights, and communication to users."
   }
 ]
